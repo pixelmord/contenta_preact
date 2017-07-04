@@ -17,6 +17,6 @@ module.exports = {
     cssnano({
       // Disable autoprefixer-- CSSNext already used it
       autoprefixer: false,
-    }),
-  ],
+    })
+  ]
 };
