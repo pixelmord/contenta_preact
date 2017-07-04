@@ -1,5 +1,8 @@
-# Contenta Preact Demo [![Build Status](https://travis-ci.org/pixelmord/contenta_preact.svg?branch=master)](https://travis-ci.org/developit/preact-boilerplate) 
+# Contenta Preact Demo 
 
+[![Build Status](https://travis-ci.org/pixelmord/contenta_preact.svg?branch=master)](https://travis-ci.org/pixelmord/contenta_preact) 
+  <a href='https://coveralls.io/github/pixelmord/contenta_preact?branch=master'><img src='https://coveralls.io/repos/github/pixelmord/contenta_preact/badge.svg?branch=master' alt='Coverage Status' /></a>
+  
 **THIS WIP IN PROGRESS CURRENTLY!!**
 
 There's no integration with a contenta API yet. Just a modified scaffold from preact-boilerplate
