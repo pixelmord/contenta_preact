@@ -12,7 +12,7 @@ I use this project to learn new things (contenta, preact, freactal, styled-compo
 ## The roadmap is as follows:
 
 - integrate with contenta CMS using jsonAPI by leveraging:
-    - freactal as state management
+    - [freactal](https://github.com/FormidableLabs/freactal) as state management
     - superagent-jsonapi
 - modeling the frontend around the recipe-coocking-magazine use-case:
     - styled-components for CSS style in JS
