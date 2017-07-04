@@ -99,7 +99,8 @@
     "preact-router": "^2.5.1",
     "promise-polyfill": "^6.0.2",
     "proptypes": "^1.0.0",
-    "serve": "^6.0.0"
+    "serve": "^6.0.0",
+    "styled-components": "^2.1.1"
   },
   "main": "webpack.config.babel.js",
   "directories": {
