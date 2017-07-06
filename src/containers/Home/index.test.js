@@ -3,7 +3,7 @@ import { expect } from 'chai';
 
 import Home from './index';
 
-describe('components/Home', () => {
+describe('containers/Home', () => {
   it('should show the Home text', () => {
     const home = <Home/>;
     expect(home).to.contain(<h1>Home</h1>);

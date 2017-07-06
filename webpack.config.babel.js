@@ -1,13 +1,12 @@
-import webpack from 'webpack'
-import ExtractTextPlugin from 'extract-text-webpack-plugin'
-import HtmlWebpackPlugin from 'html-webpack-plugin'
-import autoprefixer from 'autoprefixer'
-import CopyWebpackPlugin from 'copy-webpack-plugin'
-import OfflinePlugin from 'offline-plugin'
-import path from 'path'
-const ENV = process.env.NODE_ENV || 'development'
+import webpack from 'webpack';
+import ExtractTextPlugin from 'extract-text-webpack-plugin';
+import HtmlWebpackPlugin from 'html-webpack-plugin';
+import CopyWebpackPlugin from 'copy-webpack-plugin';
+import OfflinePlugin from 'offline-plugin';
+import path from 'path';
+const ENV = process.env.NODE_ENV || 'development';
 
-const CSS_MAPS = ENV !== 'production'
+const CSS_MAPS = ENV !== 'production';
 
 module.exports = {
   context: path.resolve(__dirname, 'src'),
@@ -27,8 +26,8 @@ module.exports = {
       'node_modules'
     ],
     alias: {
-      components: path.resolve(__dirname, 'src/components'),    // used for
-                                                                // tests
+      components: path.resolve(__dirname, 'src/components'), // used for tests
+      containers: path.resolve(__dirname, 'src/containers'), // used for tests
       style: path.resolve(__dirname, 'src/style'),
       'react': 'preact-compat',
       'react-dom': 'preact-compat'
@@ -49,28 +48,11 @@ module.exports = {
         use: 'babel-loader'
       },
       {
-        // Transform our own .(less|css) files with PostCSS and CSS-modules
         test: /\.p?css$/,
-        include: [path.resolve(__dirname, 'src/components')],
-        use: ExtractTextPlugin.extract({
-          fallback: 'style-loader',
-          use: [
-            {
-              loader: 'css-loader',
-              options: {modules: true, sourceMap: CSS_MAPS, importLoaders: 1}
-            },
-            {
-              loader: `postcss-loader`,
-              options: {
-                sourceMap: CSS_MAPS
-              }
-            }
-          ]
-        })
-      },
-      {
-        test: /\.p?css$/,
-        exclude: [path.resolve(__dirname, 'src/components')],
+        exclude: [
+          path.resolve(__dirname, 'src/components'),
+          path.resolve(__dirname, 'src/containers'),
+        ],
         use: ExtractTextPlugin.extract({
           fallback: 'style-loader',
           use: [

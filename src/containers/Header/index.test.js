@@ -3,7 +3,7 @@ import { expect } from 'chai';
 
 import Header from './index';
 
-describe('components/Header', () => {
+describe('containers/Header', () => {
 
   it('should show the correct navigation links', () => {
     const header = <Header/>;
