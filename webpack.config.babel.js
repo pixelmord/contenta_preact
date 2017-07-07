@@ -4,9 +4,12 @@ import HtmlWebpackPlugin from 'html-webpack-plugin';
 import CopyWebpackPlugin from 'copy-webpack-plugin';
 import OfflinePlugin from 'offline-plugin';
 import path from 'path';
-const ENV = process.env.NODE_ENV || 'development';
+import dotenvWebpack from 'webpack-dotenv-plugin';
+import dotenv from 'dotenv';
 
-const CSS_MAPS = ENV !== 'production';
+dotenv.config();
+
+const CSS_MAPS = process.env.NODE_ENV !== 'production';
 
 module.exports = {
   context: path.resolve(__dirname, 'src'),
@@ -79,7 +82,7 @@ module.exports = {
       },
       {
         test: /\.(svg|woff2?|ttf|eot|jpe?g|png|gif)(\?.*)?$/i,
-        use: ENV === 'production' ? 'file-loader' : 'url-loader'
+        use: process.env.NODE_ENV === 'production' ? 'file-loader' : 'url-loader'
       }
     ]
   },
@@ -88,11 +91,9 @@ module.exports = {
     new ExtractTextPlugin({
       filename: 'style.css',
       allChunks: true,
-      disable: ENV !== 'production'
+      disable: process.env.NODE_ENV !== 'production'
     }),
-    new webpack.DefinePlugin({
-      'process.env.NODE_ENV': JSON.stringify(ENV)
-    }),
+
     new HtmlWebpackPlugin({
       template: './index.ejs',
       minify: {collapseWhitespace: true}
@@ -100,8 +101,14 @@ module.exports = {
     new CopyWebpackPlugin([
       {from: './manifest.json', to: './'},
       {from: './favicon.ico', to: './'}
-    ])
-  ]).concat(ENV === 'production' ? [
+    ]),
+    // Makes some environment variables available to the JS code, for example:
+    // if (process.env.NODE_ENV === 'development') { ... }.
+    new dotenvWebpack({
+      path: './.env', // Path to .env file (this is the default)
+      sample: './.env.example'
+    })
+  ]).concat(process.env.NODE_ENV === 'production' ? [
     new webpack.optimize.UglifyJsPlugin({
       output: {
         comments: false
@@ -161,7 +168,7 @@ module.exports = {
     setImmediate: false
   },
 
-  devtool: ENV === 'production' ? 'source-map' : 'cheap-module-eval-source-map',
+  devtool: process.env.NODE_ENV === 'production' ? 'source-map' : 'cheap-module-eval-source-map',
 
   devServer: {
     port: process.env.PORT || 8090,

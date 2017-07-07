@@ -3,7 +3,8 @@ import { Router } from 'preact-router';
 
 import Header from './Header';
 import Home from './Home';
-import Recipe from './Recipes/Recipe';
+import RecipePage from './Recipes/RecipePage';
+import RecipeListPage from './Recipes/RecipeListPage';
 
 export default class App extends Component {
   /** Gets fired when the route changes.
@@ -21,7 +22,8 @@ export default class App extends Component {
         <Header />
         <Router onChange={this.handleRoute}>
           <Home path="/"/>
-          <Recipe path="/recipes/:id"/>
+          <RecipeListPage path="/recipes"/>
+          <RecipePage path="/recipes/:id"/>
         </Router>
       </div>
     );

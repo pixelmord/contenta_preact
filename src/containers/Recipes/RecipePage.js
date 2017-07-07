@@ -1,7 +1,7 @@
 import { h, Component } from 'preact';
 import MainContent from '../../components/MainContent';
 
-export default class Recipe extends Component {
+export default class RecipePage extends Component {
 
   // Note: `id` comes from the URL, courtesy of our router
   render({ id }) {

@@ -11,6 +11,7 @@ export default class Header extends Component {
         <PageHeaderTitle>Umami</PageHeaderTitle>
         <PageHeaderMenu>
           <Link href="/">Home</Link>
+          <Link href="/recipes">Recipes</Link>
         </PageHeaderMenu>
       </PageHeader>
     );
