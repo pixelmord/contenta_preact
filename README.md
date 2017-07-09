@@ -1,22 +1,22 @@
-# Contenta Preact Demo 
+# Contenta Demo with Preact, Freactal (state mgmt) and Styled Components
 
-[![Build Status](https://travis-ci.org/pixelmord/contenta_preact.svg?branch=master)](https://travis-ci.org/pixelmord/contenta_preact) 
+Version: 0.2.0 [![Build Status](https://travis-ci.org/pixelmord/contenta_preact.svg?branch=master)](https://travis-ci.org/pixelmord/contenta_preact) 
   <a href='https://coveralls.io/github/pixelmord/contenta_preact?branch=master'><img src='https://coveralls.io/repos/github/pixelmord/contenta_preact/badge.svg?branch=master' alt='Coverage Status' /></a>
   
 **THIS WIP IN PROGRESS CURRENTLY!!**
 
-There's no integration with a contenta API yet. Just a modified scaffold from preact-boilerplate
-
-I use this project to learn new things (contenta, preact, freactal, styled-components ...)
+I use this project to learn new things ([contenta](http://www.contentacms.org/), [preact], [freactal](https://github.com/FormidableLabs/freactal), [styled-components](https://www.styled-components.com) ...)
 
 ## The roadmap is as follows:
 
 - integrate with contenta CMS using jsonAPI by leveraging:
-    - [freactal](https://github.com/FormidableLabs/freactal) as state management
-    - superagent-jsonapi
+    -   ✔ freactal as state management
+    -   ✔ superagent-jsonapi
 - modeling the frontend around the recipe-coocking-magazine use-case:
-    - styled-components for CSS style in JS
-    - react-styleguidist to create a living styleguide
+    -   ✔ styled-components for CSS style in JS
+    - complete frontend as shown in [Wireframes](https://www.drupal.org/node/2818741#comment-12114776)
+    - create a living styleguide with e.g. react-styleguidist
+- Search with e.g. [ElasticlunrJS](http://elasticlunr.com/)
 - implement SSR and refine service worker for offline
 - content-editor interface
 
@@ -25,7 +25,6 @@ I use this project to learn new things (contenta, preact, freactal, styled-compo
 - [Installation](#installation)
 - [Development Workflow](#development-workflow)
 - [Structure](#structure)
-- [CSS Modules](#css-modules)
 - [Handling URLS](#handling-urls)
 - [React Compatibility](#react-compatibility)
 
@@ -119,34 +118,6 @@ class Link extends Component {
 // usage:
 <Link to="/">Home</Link>
 ```
-
-
----
-
-
-## CSS Modules
-
-This project is set up to support [CSS Modules](https://github.com/css-modules/css-modules).  By default, styles in `src/style` are **global** (not using CSS Modules) to make global declarations, imports and helpers easy to declare.  Styles in `src/components` are loaded as CSS Modules via [Webpack's css-loader](https://github.com/webpack/css-loader#css-modules).  Modular CSS namespaces class names, and when imported into JavaScript returns a mapping of canonical (unmodified) CSS classes to their local (namespaced/suffixed) counterparts.
-
-When imported, this LESS/CSS:
-
-```css
-.redText { color:red; }
-.blueText { color:blue; }
-```
-
-... returns the following map:
-
-```js
-import styles from './style.css';
-console.log(styles);
-// {
-//   redText: 'redText_local_9gt72',
-//   blueText: 'blueText_local_9gt72'
-// }
-```
-
-Note that the suffix for local classNames is generated based on an md5 hash of the file. Changing the file changes the hash.
 
 
 ---

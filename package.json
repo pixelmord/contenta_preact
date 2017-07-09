@@ -1,6 +1,6 @@
 {
   "name": "contenta_preact",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Demo client APP built with Preact as a consumer of contentaCMS: the API-first distribution of Drupal8.",
   "scripts": {
     "dev": "cross-env NODE_ENV=development webpack-dev-server --inline --hot --progress",
