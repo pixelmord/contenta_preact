@@ -13,7 +13,9 @@
     "test:watch": "npm run -s test -- --watch",
     "coveralls": "cat ./coverage/lcov.info | coveralls",
     "lint": "./node_modules/.bin/eslint src test",
-    "lint:css": "stylelint './src/components/**/*.js'"
+    "lint:css": "stylelint './src/components/**/*.js'",
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
   },
   "keywords": [
     "preact",
@@ -111,10 +113,12 @@
     "styled-components": "^2.1.1",
     "superagent": "^3.5.2",
     "superagent-jsonapify": "^1.4.5",
-    "webpack-dotenv-plugin": "^2.0.2"
+    "webpack-dotenv-plugin": "^2.0.2",
+    "snyk": "^1.41.1"
   },
   "main": "webpack.config.babel.js",
   "directories": {
     "test": "test"
-  }
+  },
+  "snyk": true
 }
